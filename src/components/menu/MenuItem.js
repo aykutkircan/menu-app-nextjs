@@ -15,6 +15,7 @@ export default function MenuItem() {
           alt="Manti Menu Item Gorsel"
           width={200}
           height={0}
+          style={{ width: "auto", height: "auto" }}
         />
       </div>
       <h4 className="my-3 text-xl font-semibold">Lorem Ipsum</h4>

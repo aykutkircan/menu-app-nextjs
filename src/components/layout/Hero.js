@@ -13,11 +13,11 @@ export default function Hero() {
           Mantının Yolu Midemizden Geçer: Damaklara Sevdalı Bir Lezzet!.
         </p>
         <div className="flex gap-4 text-xs">
-          <button className="bg-primary text-white px-4 py-2 border rounded-full flex gap-2 items-center uppercase">
+          <button className="flex-justify-center bg-primary text-white px-4 py-2 border-0 rounded-full flex gap-2 items-center uppercase">
             Order Now
             <IconRightCircle />
           </button>
-          <button className="flex items-center gap-2 py-2 text-gray-500 font-semibold">
+          <button className="flex border-0 items-center gap-2 py-2 text-gray-500 font-semibold">
             Learn More
             <IconRightCircle />
           </button>
