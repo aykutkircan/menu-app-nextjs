@@ -9,6 +9,10 @@ export default function Header() {
 
   const { status: sessionStatus } = session;
 
+  const userName = session?.data?.user?.name
+    ? session?.data?.user?.name
+    : "Unnamed";
+
   return (
     <header className="flex items-center justify-between">
       <nav className="flex gap-6 text-gray-400 font-semibold items-center">
@@ -22,13 +26,16 @@ export default function Header() {
       </nav>
       <nav className="flex gap-6 text-gray-400 font-semibold items-center">
         {sessionStatus === "authenticated" && (
-          <Link
-            className="bg-primary text-white rounded-full px-4 py-2 font-semibold text-sm"
-            href={"/"}
-            onClick={() => signOut()}
-          >
-            Logout
-          </Link>
+          <>
+            <Link href={"/profile"}>Hello, {userName}</Link>
+            <Link
+              className="bg-primary text-white rounded-full px-4 py-2 font-semibold text-sm"
+              href={"/"}
+              onClick={() => signOut()}
+            >
+              Logout
+            </Link>
+          </>
         )}
         {sessionStatus === "unauthenticated" && (
           <>
