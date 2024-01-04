@@ -4,11 +4,6 @@ export default function MenuItem() {
   return (
     <div className="bg-gray-200 p-4 rounded-lg text-center hover:bg-white hover:shadow-md hover:shadow-black/25">
       <div className="text-center">
-        {/* <img
-          className="block max-h-24 mx-auto"
-          src={"/manti-1.jpeg"}
-          alt={"Manti Menu Item Gorsel"}
-        /> */}
         <Image
           className="block mx-auto"
           src="/600x600.png"

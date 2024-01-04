@@ -43,15 +43,21 @@ export default function EditableImage({ image, setImage }) {
   return (
     <div>
       <div className="p-2 rounded-lg relative max-w-[120px]">
-        <Image
-          src={image}
-          className="rounded-lg w-full h-full mb-1"
-          width={200}
-          height={0}
-          style={{ width: "200px", height: "auto" }}
-          priority={true}
-          alt="Profil Image"
-        ></Image>
+        {image ? (
+          <Image
+            src={image}
+            className="rounded-lg w-full h-full mb-1"
+            width={200}
+            height={0}
+            style={{ width: "200px", height: "auto" }}
+            priority={true}
+            alt="image"
+          ></Image>
+        ) : (
+          <div className="text-center bg-gray-200 p-4 text-gray-500 rounded-lg mb-1">
+            No image
+          </div>
+        )}
 
         <label>
           <input type="file" className="hidden" onChange={handleUpload} />

@@ -16,7 +16,7 @@ export default function ProfilePage() {
   const [submitError, setSubmitError] = useState(false);
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
-  const [userImage, setUserImage] = useState("/600x600.png");
+  const [userImage, setUserImage] = useState("");
 
   // get initial profil data
   useEffect(() => {
@@ -27,7 +27,7 @@ export default function ProfilePage() {
         dataPromise.then((data) => {
           setUserName(data.user.name || "");
           setUserEmail(data.user.email);
-          setUserImage(data.user.image || "/600x600.png");
+          setUserImage(data.user.image);
         });
       });
     }

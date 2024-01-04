@@ -1,48 +1,37 @@
 "use client";
-
 import UserTabs from "@/components/layout/UserTabs";
 import EditableImage from "@/components/layout/EditableImage";
 
-import { useState } from "react";
-import { redirect } from "next/navigation";
-import toast from "react-hot-toast";
+import { redirect, useParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
-export default function NewCategoryItem() {
+export default function EditCategory() {
+  const { id } = useParams();
+
   const [categoryName, setCategoryName] = useState("");
   const [categoryDescription, setCategoryDescription] = useState("");
   const [categoryImage, setCategoryImage] = useState("");
   const [redirectRequest, setRedirectRequest] = useState(false);
 
-  const handleSubmitForm = async (ev) => {
-    ev.preventDefault();
+  useEffect(() => {
+    fetch("/api/categories?id=" + id, {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    }).then(async (response) => {
+      const data = await response.json();
 
-    const savingPromise = new Promise(async (resolve, reject) => {
-      const response = await fetch("/api/categories", {
-        method: "POST",
-        body: JSON.stringify({
-          name: categoryName,
-          description: categoryDescription,
-          image: categoryImage,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      if (response.ok) {
-        resolve();
-      } else {
-        reject();
+      if (data.success) {
+        setCategoryName(data?.category?.name);
+        setCategoryDescription(data?.category?.description);
+        setCategoryImage(data?.category?.image);
       }
     });
+  }, [id]);
 
-    await toast.promise(savingPromise, {
-      loading: "Saving...",
-      success: "Created successfully",
-      error: "Could not created",
-    });
+  const handleSubmitForm = (ev) => {
+    ev.preventDefault();
 
-    setRedirectRequest(true); // if process is success redirect to '/categories'
+    setRedirectRequest(true);
   };
 
   if (redirectRequest) {
@@ -78,7 +67,7 @@ export default function NewCategoryItem() {
               value={categoryDescription}
               onChange={(ev) => setCategoryDescription(ev.target.value)}
             />
-            <button type="submit">Add New Category</button>
+            <button type="submit">Edit Category</button>
           </div>
         </div>
       </form>

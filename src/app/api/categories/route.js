@@ -4,10 +4,18 @@ import { Category } from "@/models/Category";
 
 export async function GET(req, res) {
   mongoose.connect(process.env.MONGO_URL);
+  const searchParams = req.nextUrl.searchParams;
+  const id = searchParams.get("id");
 
-  const categories = await Category.find({}).lean();
+  if (!id) {
+    const categories = await Category.find({}).lean();
 
-  return Response.json({ success: true, categories: categories });
+    return Response.json({ success: true, categories: categories });
+  }
+
+  const category = await Category.findOne({ _id: id }).lean();
+
+  return Response.json({ success: true, category: category });
 }
 
 export async function POST(req, res) {
