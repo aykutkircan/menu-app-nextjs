@@ -2,13 +2,8 @@
 
 import Image from "next/image";
 import toast from "react-hot-toast";
-import { useSession } from "next-auth/react";
-
-import ConvertKebabCase from "@/libs/ConvertKebabCase";
 
 export default function EditableImage({ image, setImage }) {
-  const session = useSession();
-
   // set image when upload new profile image
   const handleUpload = async function (ev) {
     const files = ev.target.files;
@@ -18,7 +13,7 @@ export default function EditableImage({ image, setImage }) {
 
     const formData = new FormData();
     formData.append("image", files[0]);
-    formData.append("filename", ConvertKebabCase(session?.data?.user?.name));
+    // formData.append("filename", ConvertKebabCase(session?.data?.user?.name));
 
     const promise = new Promise(async (resolve, reject) => {
       const response = await fetch("/api/upload", {

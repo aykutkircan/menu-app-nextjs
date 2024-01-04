@@ -17,12 +17,20 @@ export default function UserTabs() {
         Profile
       </Link>
       {isAdmin && (
-        <Link
-          href={"/menu-items"}
-          className={pathname.includes("menu-items") ? "active" : ""}
-        >
-          Menu Items
-        </Link>
+        <>
+          <Link
+            href={"/categories"}
+            className={pathname.includes("/categories") ? "active" : ""}
+          >
+            Categories
+          </Link>
+          <Link
+            href={"/menu-items"}
+            className={pathname.includes("menu-items") ? "active" : ""}
+          >
+            Menu Items
+          </Link>
+        </>
       )}
     </div>
   );
