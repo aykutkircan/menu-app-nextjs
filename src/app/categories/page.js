@@ -8,7 +8,7 @@ import IconRightCircle from "@/components/icons/IconRightCircle";
 import UserTabs from "@/components/layout/UserTabs";
 
 export default function CategoriesPage() {
-  const [menuItems, setMenuItems] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     fetch("/api/categories", {
@@ -17,7 +17,7 @@ export default function CategoriesPage() {
     }).then(async (response) => {
       const data = await response.json();
       if (data.success) {
-        setMenuItems(data.categories);
+        setCategories(data.categories);
       }
     });
   }, []);
@@ -34,8 +34,8 @@ export default function CategoriesPage() {
       <div>
         <h2 className="text-sm text-gray-500 mt-8">Edit category item:</h2>
         <div className="grid grid-cols-3 gap-2">
-          {menuItems?.length > 0 &&
-            menuItems.map((item) => (
+          {categories?.length > 0 &&
+            categories.map((item) => (
               <Link
                 key={item._id}
                 href={"/categories/edit/" + item._id}

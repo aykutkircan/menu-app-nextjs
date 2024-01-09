@@ -39,3 +39,36 @@ export async function POST(req, res) {
     { status: 201 }
   );
 }
+
+export async function PUT(req, res) {
+  mongoose.connect(process.env.MONGO_URL);
+  const body = await req.json();
+
+  if (!body._id) {
+    return Response.json({ success: false }, { status: 400 });
+  }
+
+  const updatedCategory = await Category.findOneAndUpdate(
+    { _id: body._id },
+    { ...body },
+    { new: true }
+  );
+
+  return Response.json(
+    { success: true, category: updatedCategory },
+    { status: 201 }
+  );
+}
+
+export async function DELETE(req, res) {
+  mongoose.connect(process.env.MONGO_URL);
+  const body = await req.json();
+
+  if (!body._id) {
+    return Response.json({ success: false }, { status: 400 });
+  }
+
+  await Category.findOneAndDelete({ _id: body._id });
+
+  return Response.json({ success: true }, { status: 201 });
+}
