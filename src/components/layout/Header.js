@@ -21,8 +21,8 @@ export default function Header() {
         </Link>
         <Link href={"/"}>Home</Link>
         <Link href={"/menu"}>Menu</Link>
-        <Link href={"/about"}>About</Link>
-        <Link href={"/contact"}>Contact</Link>
+        <Link href={"#about"}>About</Link>
+        <Link href={"#contact"}>Contact</Link>
       </nav>
       <nav className="flex gap-6 text-gray-400 font-semibold items-center">
         {sessionStatus === "authenticated" && (

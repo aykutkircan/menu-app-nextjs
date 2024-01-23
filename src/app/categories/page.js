@@ -43,14 +43,14 @@ export default function CategoriesPage() {
               >
                 <div className="relative">
                   <Image
-                    className="rounded-md"
+                    className="rounded-md mx-auto"
                     src={item.image}
                     alt={""}
                     width={200}
                     height={200}
                   />
                 </div>
-                <div className="text-center">{item.name}</div>
+                <div className="text-center pt-2">{item.name}</div>
               </Link>
             ))}
         </div>
