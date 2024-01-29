@@ -8,8 +8,11 @@ export default function DeleteConfirmation({
   }
 
   return (
-    <div tabIndex="-1" className="fixed flex top-10 w-full justify-center">
-      <div className="relative p-4 w-full max-w-md max-h-full">
+    <div
+      tabIndex="-1"
+      className="fixed flex top-0 left-0 bottom-0 right-0 w-full"
+    >
+      <div className="flex items-center w-full  max-h-full mx-64 my-2">
         <div className="relative bg-white rounded-lg border border-solid shadow-xl">
           <button
             type="button"
