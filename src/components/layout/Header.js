@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+
 import { useSession, signOut } from "next-auth/react";
 
 export default function Header() {
@@ -13,16 +14,28 @@ export default function Header() {
     ? session?.data?.user?.name
     : "Unnamed";
 
+  const handleScroll = (target) => {
+    const targetElement = document.getElementById(target);
+
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <header className="flex items-center justify-between">
       <nav className="flex gap-6 text-gray-400 font-semibold items-center">
-        <Link className="text-primary font-semibold text-2xl" href={"/"}>
+        <Link className="text-primary font-semibold text-md" href={"/"}>
           Yöre Mantı Evi
         </Link>
         <Link href={"/"}>Home</Link>
         <Link href={"/menu"}>Menu</Link>
-        <Link href={"#about"}>About</Link>
-        <Link href={"#contact"}>Contact</Link>
+        <Link href={""} onClick={() => handleScroll("about")}>
+          About
+        </Link>
+        <Link href={""} onClick={() => handleScroll("contact")}>
+          Contact
+        </Link>
       </nav>
       <nav className="flex gap-6 text-gray-400 font-semibold items-center">
         {sessionStatus === "authenticated" && (

@@ -1,6 +1,6 @@
 import Hero from "@/components/layout/Hero";
-import HomeMenu from "../components/layout/HomeMenu";
-import SectionHeaders from "../components/layout/SectionHeaders";
+import HomeMenu from "@/components/layout/HomeMenu";
+import SectionHeaders from "@/components/layout/SectionHeaders";
 
 export default function Page() {
   return (
@@ -17,19 +17,6 @@ export default function Page() {
             faucibus. Nulla hendrerit vehicula felis eget imperdiet. Nulla non
             cursus diam. Donec posuere erat vitae vehicula dapibus. Aliquam a
             sem fringilla, viverra purus non, placerat enim.
-          </p>
-          <p>
-            Suspendisse potenti. Vivamus mattis ultricies erat, a maximus enim
-            auctor at. Maecenas iaculis pulvinar libero, ac tristique ligula
-            tempor sed. Integer vel turpis sollicitudin, eleifend neque
-            vestibulum, porttitor ante. Etiam id mattis ipsum. Nulla semper quam
-            vel nibh vulputate, ac euismod massa auctor. Maecenas risus lacus,
-            bibendum condimentum molestie id, auctor nec metus.
-          </p>
-          <p>
-            Donec sollicitudin nisi aliquam augue egestas hendrerit. Etiam
-            vestibulum tempor erat, eget efficitur ex luctus nec. Nulla aliquet
-            molestie rutrum. Aliquam auctor lacinia ipsum eu consectetur.
           </p>
         </div>
       </section>

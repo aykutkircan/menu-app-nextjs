@@ -134,7 +134,7 @@ export default function EditMenuItem() {
               onChange={(ev) => setMenuItemCategory(ev.target.value)}
             >
               <option value={""} disabled>
-                {menuItemCategory ? menuItemCategory : "Select a Category"}
+                {"Select a Category"}
               </option>
               {categories?.length > 0 &&
                 categories.map((c) => (
